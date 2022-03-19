@@ -7,7 +7,7 @@ class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
 
 
-class Notes(models.Model):
+class Note(models.Model):
     topic = models.CharField(max_length=30)
     Notes = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
