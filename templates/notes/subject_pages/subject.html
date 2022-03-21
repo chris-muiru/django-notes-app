@@ -1,26 +1,20 @@
-{% extends "../base.html"%} {%block subject%}
+{% extends "../base.html"%} 
+{%block subject%}
+<{%load widget_tweaks%}
+
+
 <h2 class="text-white text-center my-7">Create subject</h2>
-<div
-	class="subject w-1/2 mx-auto flex content-center justify-center bg-slate-700 rounded-md"
->
+<div class="subject mx-auto flex content-center justify-center bg-slate-700 rounded-md box-border">
 	{% comment %} create subject here {% endcomment %}
-	<div class="mx-auto p-4 border-box">
-		<form action="">
-			{% csrf_token %}
-			<input
-				type="text"
-				placeholder="Subject"
-				class="my-4 rounded-md w-full"
-			/>
-			<br />
-			<input type="date" class="my-4 rounded-md w-full" />
-			<br />
-			<br />
-			<br />
+
+	<div class=" subject-div p-4 border-box bg-black w-full">
+		<form action="" method="post">
+			{% csrf_token %} 
+			{% render_field form.name class="my-4 rounded-md w-full", placeholder='Enter name' %} 
+			{% render_field form.date_created class="my-4 rounded-md w-full", type="date" %} 
 			<button
 				type="submit"
-				class="bg-blue-400 py-2 px-11 border-none rounded-md ml-12"
-			>
+				class="bg-blue-400 py-2 px-11 border-none rounded-md box-border ml-24 mt-7"> 
 				Create
 			</button>
 		</form>
