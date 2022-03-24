@@ -1,0 +1,21 @@
+{%extends '../base.html'%}
+
+{%block content%}
+<div class="align-left flex justify-end">
+<form action="" method='POST'>
+    {% csrf_token %}
+    <button type="submit" class="bg-yellow-400 p-2 rounded-sm mt-7 relative right-28">
+        delete note
+    </button>
+</form>
+</div>
+<div class="w-3/4 mx-auto text-justify text-white mt-9">
+    <b class="text-right text-green-500 text-xl">{{note.topic}}</b>
+    
+    <div class="">
+        {{note.Notes}}
+    </div>
+
+</div>
+
+{%endblock content%}
