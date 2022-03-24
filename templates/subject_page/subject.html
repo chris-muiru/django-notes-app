@@ -1,33 +1,29 @@
 {% extends "../base.html"%}
-{%load static%}
-{%block links%} 
-<link rel="stylesheet" href="{%static 'subject.css'%}">
+{%block links%}
 {%endblock links%} 
 {%block content%}
 {%load widget_tweaks%}
 <h2 class="text-white text-center my-7">Create subject</h2>
-<div class="w-subject mx-auto flex content-center justify-center rounded-md box-border">
-
+<div class="flex justify-center w-subject mx-auto content-center rounded-md box-border">
 	{% comment %} create subject here {% endcomment %}
-    <div class=" subject-div p-4 border-box subject">
-		<form action="" method="post">
-			{% csrf_token %} 
-			{% render_field form.name class="my-4 rounded-md w-full inline", placeholder='Enter name' %}
+    <div class="p-4 w-full border-box">
+        <form action="" method="post class="">
+            {% csrf_token %} 
+            {% render_field form.name class="my-4 rounded-md w-full inline", placeholder='Enter name' %}
             <button
                 type="submit"
-                class="bg-blue-400 py-2 px-11 border-none rounded-md box-border ml-24 mt-7"> 
+                class="bg-blue-400 py-2 px-11 border-none rounded-md box-border mt-7 ml-28"> 
                 <a href="{% url 'dashboard' %}">
                     Create
                 </a>
             </button>
-    </form>
-    
+        </form>
 	</div>
-</div>``
-
-<div class="flex mx-auto w-1/2 mt-7 flex-wrap ">
-
 </div>
 
+
+
+<div class="w-24 h-24">
+</div>
 
 {%endblock content%}
