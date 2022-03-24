@@ -21,7 +21,10 @@ def create_notes_view(request):
     form = createNotesForm()
     if request.method == 'POST':
         form = createNotesForm(request.POST)
-        form.save()
+        if form.is_valid():
+            topic = form.cleaned_data['topic']
+            if not Note.objects.filter(topic__icontains=topic).exists():
+                form.save()
         return redirect('dashboard')
     context = {
         'form': form
@@ -41,7 +44,7 @@ def note_view(request, pk):
     query_note = Note.objects.filter(id=pk).get()
     print(query_note)
 
-    if request.method =='POST':
+    if request.method == 'POST':
         query_note.delete()
         return redirect('dashboard')
     context = {

@@ -4,7 +4,7 @@
 <div class="align-left flex justify-end">
 <form action="" method='POST'>
     {% csrf_token %}
-    <button type="submit" class="bg-yellow-400 p-2 rounded-sm mt-7 relative right-28">
+    <button type="submit" class="bg-yellow-400 p-2 rounded-sm mt-7 relative right-12 md:right-24 lg:right-36 xl:right-60">
         delete note
     </button>
 </form>
@@ -12,10 +12,9 @@
 <div class="w-3/4 mx-auto text-justify text-white mt-9">
     <b class="text-right text-green-500 text-xl">{{note.topic}}</b>
     
-    <div class="">
+    <div class="font-shadow-light">
         {{note.Notes}}
     </div>
 
 </div>
-
 {%endblock content%}

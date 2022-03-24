@@ -7,7 +7,7 @@
 
 <div class="mx-auto w-note flex content-center justify-center rounded-md box-border">
 	{% comment %} create subject here {% endcomment %}
-    <div class=" subject p-4 border-box w-full">
+    <div class="p-4 border-box w-full">
 		<form action="" method="post">
 			{% csrf_token %} 
 			{% render_field form.topic class="my-4 rounded-md w-full inline", placeholder='Enter topic' %}
