@@ -1,13 +1,15 @@
 from django import forms
-from .models import Subject
+from .models import Subject,Note
 
 
 class SubjectForm(forms.ModelForm):
     name = forms.CharField(label='')
-    date_created = forms.DateField(label='')
 
     class Meta:
         model = Subject
-        fields = ('name', 'date_created')
+        fields = ('name',)
 
-      
+class createNotesForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields='__all__'
