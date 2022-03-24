@@ -710,6 +710,10 @@ select {
   right: 0px;
 }
 
+.right-28 {
+  right: 7rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -729,16 +733,20 @@ select {
   margin-left: 0.75rem;
 }
 
-.ml-24 {
-  margin-left: 6rem;
+.ml-64 {
+  margin-left: 16rem;
 }
 
 .mt-7 {
   margin-top: 1.75rem;
 }
 
-.mt-24 {
-  margin-top: 6rem;
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.ml-24 {
+  margin-left: 6rem;
 }
 
 .box-border {
@@ -747,6 +755,10 @@ select {
 
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -777,6 +789,14 @@ select {
   height: 2rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -789,12 +809,24 @@ select {
   width: 2rem;
 }
 
+.w-note {
+  width: 700px;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-subject {
+  width: 400px;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .max-w-7xl {
@@ -809,12 +841,20 @@ select {
   flex-shrink: 0;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .content-center {
   align-content: center;
 }
 
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -845,6 +885,10 @@ select {
   border-radius: 9999px;
 }
 
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
 .border-none {
   border-style: none;
 }
@@ -869,19 +913,24 @@ select {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.bg-slate-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -894,6 +943,10 @@ select {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-2 {
@@ -932,6 +985,14 @@ select {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
@@ -949,6 +1010,11 @@ select {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-medium {
@@ -976,6 +1042,11 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
 .hover\:bg-gray-700:hover {

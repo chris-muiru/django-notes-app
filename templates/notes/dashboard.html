@@ -1,0 +1,22 @@
+{%extends '../base.html'%}
+
+{%block content%}
+<div class="mt-7 mx-auto w-3/4 h-auto flex justify-end">
+    <button class="text-white h-14 rounded-md p-4 bg-yellow-500">
+        <a href="{% url 'create_notes' %}">
+            create Note
+        </a>
+    </button>  
+</div>
+<h2 class="text-white text-center my-7">Notes</h2>
+<div class=" w-3/4 mx-auto">
+    {%for note in notes%}
+    <a href="{% url 'note' note.id%}">
+        <div class="bg-blue-500 p-8 rounded-md mt-7">
+            {{note.topic}}
+        </div>
+    </a>
+    {%endfor%}
+</div>
+
+{%endblock content%}
