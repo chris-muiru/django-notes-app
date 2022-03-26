@@ -40,10 +40,8 @@ def dashboard_view(request):
     return render(request, 'notes/dashboard.html', content)
 
 
-def note_view(request, pk):
+def ListDeleteNoteView(request, pk):
     query_note = Note.objects.filter(id=pk).get()
-    print(query_note)
-
     if request.method == 'POST':
         query_note.delete()
         return redirect('dashboard')
@@ -54,3 +52,4 @@ def note_view(request, pk):
 
 # Crud architecture for
 # Create your views here.
+# 
