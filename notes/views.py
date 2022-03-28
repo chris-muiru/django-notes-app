@@ -1,22 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Subject, Note
-from .forms import SubjectForm, createNotesForm
+from .models import Note
+from .forms import createNotesForm
+from django.contrib.auth.decorators import login_required
 
 
-def list_create_subject_view(request):
-    form = SubjectForm()
-    if request.method == 'POST':
-        form = SubjectForm(request.POST)
-        if form.is_valid() and not Subject.objects.filter(name=form.cleaned_data['name']).exists():
-            form.save()
-    subject_query_set = Subject.objects.all()
-    context = {
-        'form': form,
-        'subjects': subject_query_set
-    }
-    return render(request, 'subject_page/subject.html', context)
-
-
+@login_required(login_url='login')
 def create_notes_view(request):
     form = createNotesForm()
     if request.method == 'POST':
@@ -24,7 +12,9 @@ def create_notes_view(request):
         if form.is_valid():
             topic = form.cleaned_data['topic']
             if not Note.objects.filter(topic__icontains=topic).exists():
-                form.save()
+                instance = form.save(commit=False)
+                instance.user = request.user
+                instance.save()
         return redirect('dashboard')
     context = {
         'form': form
@@ -32,14 +22,17 @@ def create_notes_view(request):
     return render(request, 'notes/createNote.html', context)
 
 
+@login_required(login_url='login')
 def dashboard_view(request):
     note_queryset = Note.objects.all()
+    user=request.user
     content = {
-        'notes': note_queryset
+        'notes': note_queryset,
     }
     return render(request, 'notes/dashboard.html', content)
 
 
+@login_required(login_url='login')
 def ListDeleteNoteView(request, pk):
     query_note = Note.objects.filter(id=pk).get()
     if request.method == 'POST':
@@ -50,6 +43,21 @@ def ListDeleteNoteView(request, pk):
     }
     return render(request, 'notes/note.html', context)
 
+# @login_required(login_url='login')
+# def list_create_subject_view(request):
+#     form = SubjectForm()
+#     if request.method == 'POST':
+#         form = SubjectForm(request.POST)
+#         if form.is_valid() and not Subject.objects.filter(name=form.cleaned_data['name']).exists():
+#             form.save()
+#     subject_query_set = Subject.objects.all()
+#     context = {
+#         'form': form,
+#         'subjects': subject_query_set
+#     }
+#     return render(request, 'subject_page/subject.html', context)
+
+
 # Crud architecture for
 # Create your views here.
-# 
+#
