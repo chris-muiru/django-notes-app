@@ -1,15 +1,15 @@
 from django import forms
-from .models import Subject,Note
+from .models import Note
 
 
-class SubjectForm(forms.ModelForm):
-    name = forms.CharField(label='')
+# class SubjectForm(forms.ModelForm):
+#     name = forms.CharField(label='')
 
-    class Meta:
-        model = Subject
-        fields = ('name',)
+#     class Meta:
+#         model = Subject
+#         fields = ('name',)
 
 class createNotesForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields='__all__'
+        fields=('topic','Notes','subject')
