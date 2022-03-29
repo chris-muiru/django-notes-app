@@ -12,4 +12,4 @@ from .models import Note
 class createNotesForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields=('topic','Notes','subject')
+        fields = ('topic', 'Notes', 'subject')
