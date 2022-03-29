@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm,ProfileForm
 from django.contrib.auth import login, authenticate, logout
-
+from .models import Profile
 
 def registerView(request):
     form = RegisterUserForm()
@@ -37,6 +37,18 @@ def logOut(request):
     logout(request)
     return redirect('login')
 
+
+def updateProfile(request):
+    form=ProfileForm()
+    if request.method =='POST':
+        form=ProfileForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+    context={
+        'form':form
+    }
+    return render(request,'authenticate/profile.html',context)
 
 
 # Create your views here.
