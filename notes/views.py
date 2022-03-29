@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Note
 from .forms import createNotesForm
 from django.contrib.auth.decorators import login_required
-
+from .decorators import can_delete
 
 @login_required(login_url='login')
 def create_notes_view(request):
@@ -33,15 +33,25 @@ def dashboard_view(request):
 
 
 @login_required(login_url='login')
-def ListDeleteNoteView(request, pk):
+def ListNoteView(request, pk):
     query_note = Note.objects.filter(id=pk).get()
-    if request.method == 'POST':
-        query_note.delete()
-        return redirect('dashboard')
+    # if request.method == 'POST':
+    #     query_note.delete()
+    #     return redirect('dashboard')
     context = {
         'note': query_note
     }
     return render(request, 'notes/note.html', context)
+
+@can_delete
+def DeleteNoteView(request,pk):
+    query_note = Note.objects.get(id=pk)
+    query_note.delete()
+    return redirect('dashboard')
+     
+
+
+
 
 # @login_required(login_url='login')
 # def list_create_subject_view(request):
