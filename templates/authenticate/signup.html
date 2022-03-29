@@ -2,25 +2,23 @@
 {%load widget_tweaks%}
 {%block authenticate%}
 <div>
-    <h2 class="text-center relative top-24 font-shadow-light text-white text-5xl">Sign Up</h2>
+    <h2 class="text-center relative top-24 font-shadow-light text-white text-3xl sm:text-5xl ">Sign Up</h2>
    
-    <div class="w-mb h-96 rounded-lg mx-auto my-52">
-       
+    <div class="w-72 sm:w-72 md:w-mb rounded-lg mx-auto mt-40 sm:mt-52">
             <form action="" method="post">
                 {%csrf_token%}
                 {% render_field form.username class="my-4 rounded-md w-full inline" placeholder='Username' %}
                 {% render_field form.email class="my-4 rounded-md w-full inline" placeholder='Enter email'%} 
                 {% render_field form.password1 class="my-4 rounded-md w-full inline" placeholder='Enter password'%} 
                 {% render_field form.password2 class="my-4 rounded-md w-full inline" placeholder='Re enter password'%} 
-                <button type="submit" class="bg-blue-400 ml-60 py-2 px-11 border-none rounded-md box-border mt-7"> 
+                <button type="submit" class="bg-blue-400  ml-16  sm:ml-56 py-2 px-11 border-none rounded-md box-border mt-7"> 
                     Register
                 </button>
             </form>
     </div>
- <div class="bg-indigo-600 w-1/2 h-10 mx-auto">
-     hello
-            {{form.errors}}
-        </div>
-</div>
+ {% comment %} <div class="mt-10 bg-blue-300 mx-auto w-3/4">
+     X
+        {{form.errors}}
+</div> {% endcomment %}
 
 {%endblock authenticate%}

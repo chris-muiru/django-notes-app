@@ -2,11 +2,12 @@
 
 {%block content%}
 <div class="mt-7 mx-auto w-3/4 h-auto flex justify-end">
-    <button class="text-white h-14 rounded-md p-4 bg-yellow-500">
-        <a href="{% url 'create-note' %}">
-            create Note
-        </a>
-    </button>  
+    <a href="{% url 'create-note' %}">
+        <button class="text-white h-14 rounded-md p-4 bg-yellow-500">
+        
+                create Note
+        </button> 
+    </a> 
 </div>
 <h2 class="text-white text-center my-7 ">Notes</h2>
 <div class=" w-3/4 mx-auto">
