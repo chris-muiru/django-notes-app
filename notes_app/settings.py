@@ -139,8 +139,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR/"static"
+    BASE_DIR/"theme/build"
 ]
+
+WEBPACK_LOADER = {
+    'MANIFEST_FILE': os.path.join(BASE_DIR, "frontend/build/manifest.json"),
+}
 
 STATIC_ROOT = BASE_DIR/'static_root'
 # save uploaded images here
