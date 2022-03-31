@@ -56,6 +56,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,7 +142,7 @@ STATICFILES_DIRS = [
     BASE_DIR/"static"
 ]
 
-STATIC_ROOT = 'static_root'
+STATIC_ROOT = BASE_DIR/'static_root'
 # save uploaded images here
 
 MEDIA_ROOT = BASE_DIR/'media'
