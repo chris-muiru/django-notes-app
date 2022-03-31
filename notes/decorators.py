@@ -5,9 +5,9 @@ from django.shortcuts import redirect
 
 def can_delete(func):
     def wrapper_can_delete(request, pk, *args, **kwargs):
-        if Note.objects.get(id=pk).user.username == request.user:
+        if str(Note.objects.get(id=pk).user.username) == str(request.user):
             return func(request, pk, *args, **kwargs)
         else:
             return redirect('dashboard')
 
-    return wrapper_can_delete 
+    return wrapper_can_delete
