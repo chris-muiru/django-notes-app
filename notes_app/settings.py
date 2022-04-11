@@ -13,16 +13,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
-import django_heroku 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-django_heroku.settings(locals())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-$%795n2$z0j2nphf+0$7^%&m=k16v6(7)@*3rv94-)$g90j)9u'
+SECRET_KEY = 'django-insecure-$%795n2$z0j2nphf+0$7^%&m=k16v6(7)@*3rv94-)$g90j)9u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,18 +46,11 @@ INSTALLED_APPS = [
     # my apps
     'notes',
     'authenticate',
-
-    # white noise
-    'whitenoise.runserver_nostatic'
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'notes_app.urls'
+
 
 TEMPLATES = [
     {
@@ -139,17 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR/"theme/build"
-]
 
-WEBPACK_LOADER = {
-    'MANIFEST_FILE': os.path.join(BASE_DIR, "frontend/build/manifest.json"),
-}
-
-STATIC_ROOT = BASE_DIR/'static_root'
-# save uploaded images here
-
+# media from user
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
 
@@ -158,6 +141,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# tailwind config
 TAILWIND_APP_NAME = 'theme'
 
 INTERNAL_IPS = [
