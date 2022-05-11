@@ -4,3 +4,4 @@ db*
 venv/
 *.json
 theme/
+media/profile_pics/*
