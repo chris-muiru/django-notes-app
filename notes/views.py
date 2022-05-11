@@ -4,6 +4,7 @@ from .forms import createNotesForm
 from django.contrib.auth.decorators import login_required
 from .decorators import can_delete
 
+# decorator makes shure user is authenticated else redirects the user to login page
 @login_required(login_url='login')
 def create_notes_view(request):
     form = createNotesForm()
@@ -16,6 +17,7 @@ def create_notes_view(request):
                 instance.user = request.user
                 instance.save()
         return redirect('dashboard')
+    
     context = {
         'form': form
     }
@@ -34,12 +36,10 @@ def dashboard_view(request):
 
 @login_required(login_url='login')
 def ListNoteView(request, pk):
-    query_note = Note.objects.filter(id=pk).get()
-    # if request.method == 'POST':
-    #     query_note.delete()
-    #     return redirect('dashboard')
+    query_note = Note.objects.get(id=pk) 
+    print(query_note.user.username)
     context = {
-        'note': query_note
+            'note': query_note,
     }
     return render(request, 'notes/note.html', context)
 
@@ -50,24 +50,4 @@ def DeleteNoteView(request,pk):
     return redirect('dashboard')
      
 
-
-
-
-# @login_required(login_url='login')
-# def list_create_subject_view(request):
-#     form = SubjectForm()
-#     if request.method == 'POST':
-#         form = SubjectForm(request.POST)
-#         if form.is_valid() and not Subject.objects.filter(name=form.cleaned_data['name']).exists():
-#             form.save()
-#     subject_query_set = Subject.objects.all()
-#     context = {
-#         'form': form,
-#         'subjects': subject_query_set
-#     }
-#     return render(request, 'subject_page/subject.html', context)
-
-
-# Crud architecture for
 # Create your views here.
-#
