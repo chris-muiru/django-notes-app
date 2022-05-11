@@ -38,17 +38,20 @@ def logOut(request):
     return redirect('login')
 
 
-def updateProfile(request):
+def updateProfile(request,pk):
+    query=Profile.objects.get(id=pk)
     form=ProfileForm()
     if request.method =='POST':
-        form=ProfileForm(request.POST)
-        
-        if form.is_valid():
-            form.save()
+        form=ProfileForm(request.POST,request.FILES,instance=query)
+        if form.is_valid(): 
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+        else:
+            form=ProfileForm(request.POST,request.FILES,instance=query)
     context={
         'form':form
     }
     return render(request,'authenticate/profile.html',context)
-
 
 # Create your views here.
