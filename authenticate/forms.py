@@ -12,6 +12,7 @@ class RegisterUserForm(UserCreationForm):
 
 
 class ProfileForm(forms.ModelForm):
+    image=forms.ImageField(label='')
     class Meta:
         model = Profile
         fields = ('image',)
