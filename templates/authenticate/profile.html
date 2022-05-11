@@ -1,11 +1,12 @@
 {%extends '../base.html'%}
 {%block content%}
 {%load widget_tweaks%}
-<div>
-    <form action="" method='post'>
+<div class="bg-blue-900 w-1/2 m-auto mt-20">
+    <p >{{user.username}}</p>
+    <form action="" method='post' enctype="multipart/form-data">
         {%csrf_token%}
-        {% render_field form.image class="my-4 rounded-md w-full inline", placeholder='file' %}
-        <button type="submit">send</button>
+        {% render_field form.image class="block m-7" placeholder='file' %}
+        <button type="submit" class="bg-green-600 w-32 p-2 rounded-md">change</button>
     </form>
 </div>
 {%endblock content%}

@@ -4,7 +4,7 @@
 <div class="align-left flex justify-end">
 <form action="/delete/{{note.id}}/" method='POST'>
     {% csrf_token %}
-    {%if user == note.user.username %}
+    {%if user.username == note.user.username%}
         <button type="submit" class="bg-yellow-400 p-2 rounded-sm mt-7 relative right-12 md:right-24 lg:right-36 xl:right-60">
             delete note
         </button>
