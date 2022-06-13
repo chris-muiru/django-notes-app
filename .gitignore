@@ -3,5 +3,5 @@ migrations
 db*
 venv/
 *.json
-theme/
 media/profile_pics/*
+node_modules/
