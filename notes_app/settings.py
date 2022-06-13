@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # taiwind apps
-    'theme',
     'tailwind',
+    'theme',
     'django_browser_reload',
     'widget_tweaks',
 
